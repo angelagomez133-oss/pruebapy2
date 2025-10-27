@@ -48,7 +48,7 @@ pipeline {
                 bat 'venv\\Scripts\\activate && python proyecto.py'
             }
         }
-  }
+    }
     
     post {
         success {
