@@ -31,7 +31,7 @@ pipeline {
         stage('Aplicar simulacion') {
             steps {
                 echo 'Creando infraestructura simulada (archivo)...'
-                bat "${env.TERRAFORM_PATH} apply -auto.approve"
+                bat "${env.TERRAFORM_PATH} apply -auto-approve"
             }
         }
 
