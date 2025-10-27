@@ -35,7 +35,7 @@ pipeline {
             }
         }
 
-        stage('Preparar entorno') {
+        stage('Preparar entorno2') {
             steps {
                 echo "Creando entorno virtual..."
                 bat '"C:\\Users\\Angela\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" -m venv venv'
