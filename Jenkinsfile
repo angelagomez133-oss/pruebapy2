@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-        stage('Validar configuración) {
+        stage('Validar configuración') {
             steps {
                 echo 'Validando sintaxis de Terraform...'
                 bat "${env.TERRAFORM_PATH} validate"
