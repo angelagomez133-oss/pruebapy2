@@ -34,19 +34,7 @@ pipeline {
                 bat "${env.TERRAFORM_PATH} apply -auto.approve"
             }
         }
-    }
-    post {
-        success {
-            archiveArtifacts artifacts:'*-txt, plan.txt', fingerprint: true
-            echo '✅ Infraestructura simulada creada correctamente.'
-        }
-        failure {
-            echo '❌ Error en e pipeline o en la configuracion Terraform.'
-        }
-    }
-}
 
-stages {
         stage('Preparar entorno') {
             steps {
                 echo "Creando entorno virtual..."
@@ -61,13 +49,17 @@ stages {
             }
         }
   }
-
-  post {
-      success { 
-          echo "✅ Pipeline completado con éxito" 
-      }
-      failure { 
-          echo "❌ Error en alguna etapa del pipeline" 
-      }
-  }
+    
+    post {
+        success {
+            archiveArtifacts artifacts:'*-txt, plan.txt', fingerprint: true
+            echo '✅ Infraestructura simulada creada correctamente.'
+        }
+        failure {
+            echo '❌ Error en e pipeline o en la configuracion Terraform.'
+        }
+    }
 }
+
+
+
